@@ -44,6 +44,13 @@ The interactive Scalar API reference is at `http://localhost:8080/docs`, backed 
 
 ## Deploying frontend and API separately
 
+Set the Vercel project's Root Directory to `frontend`. The
+`frontend/vercel.json` configuration allows automatic Git deployments only from
+`main` and `deployment`; all other branches are disabled, including branches
+with `/` in their names. Keep this configuration on every branch where the rule
+should apply. The Vercel project's Production Branch setting determines which
+allowed branch deploys to production; the other uses preview deployments.
+
 The Next.js app exposes a same-origin proxy under `/api/v1/*` and forwards
 requests to the Go API. The browser stores the session cookies on the frontend
 host, so the Vercel and Render default domains can be used without third-party
